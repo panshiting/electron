@@ -1,0 +1,53 @@
+{
+  "name": "electron",
+  "version": "1.0.0",
+  "description": "my first electron application",
+  "main": "./index.js",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-packager . --win --out ../electronApp --arch=x64 --app-version=1.0.0 --electron-version=4.1.1",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "1.0.0",
+    "copyright": "LEON",
+    "productName": "electronApp",
+    "dmg": {
+      "window": {
+        "x": 100,
+        "y": 100,
+        "width": 500,
+        "height": 300
+      }
+    },
+    "win": {
+      "target": [
+        "nsis",
+        "zip"
+      ]
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowElevation": true,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "runAfterFinish": true
+    },
+    "publish": [
+      {
+        "provider": "generic",
+        "url": "http://localhost:8000"
+      }
+    ]
+  },
+  "author": "panshiting",
+  "license": "ISC",
+  "devDependencies": {
+    "electron": "^4.1.1"
+  },
+  "dependencies": {
+    "electron-squirrel-startup": "^1.0.0",
+    "electron-updater": "^4.0.6"
+  }
+}
